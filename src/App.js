@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
@@ -19,11 +18,6 @@ function App() {
           Learn React
         </a>
       </header>
-      {/* <Router>
-        <Switch>
-          <Route path="/apple-app-site-association" exact component={() => <About />} />
-        </Switch>
-      </Router> */}
     </div>
   );
 }
