@@ -1,0 +1,203 @@
+.card {
+  padding-top: 20px;
+  margin: 0 auto;
+  /* background-color: rgba(214, 224, 226, 0.2); */
+  border-top-width: 0;
+  border-bottom-width: 2px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 0px !important;
+  text-align: center;
+  max-width: 840px;
+}
+
+.card.hovercard {
+  position: relative;
+  padding-top: 130px;
+  padding-left: 15px;
+  padding-right: 15px;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.card.hovercard .avatar {
+  position: relative;
+}
+
+.card.hovercard .avatar img {
+  width: 230px;
+  height: 230px;
+  max-width: 230px;
+  max-height: 230px;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  border-radius: 20%;
+}
+
+.card.hovercard .info {
+  padding: 4px 145px 0px;
+}
+
+.card.hovercard .info .title {
+  font-family: 'Poppins ExtraBold';
+  margin-bottom: 4px;
+  font-size: 32px;
+  line-height: 34px;
+  vertical-align: middle;
+}
+
+.card.hovercard .info .username {
+  margin-bottom: 20px;
+  font-size: 22px;
+  line-height: 25px;
+  color: #707070;
+  vertical-align: middle;
+}
+
+.card.hovercard .info .desc {
+  overflow: hidden;
+  font-size: 22px;
+  letter-spacing: 0px;
+  line-height: 27px;
+  text-overflow: ellipsis;
+}
+
+.mobile-modal {
+  display: none;
+}
+
+.desktop-modal {
+  display: block;
+  position: fixed;
+  top: 0px;
+  z-index: 1100;
+}
+
+.download-btn {
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 100vw;
+  font-size: 25px;
+  padding: 16px;
+}
+
+.address {
+  cursor: pointer;
+}
+
+.address img {
+  width: 200px;
+  height: 200px;
+  border-radius: 20%;
+}
+
+.address .key {
+  color: #D1D1D1;
+  font-size: 28px;
+}
+
+.pb-6 {
+  padding-bottom: 50px;
+}
+
+.modal-coinname {
+  line-height: 100px;
+  font-size: 27px;
+  font-family: 'Poppins ExtraBold';
+}
+
+.modal-button {
+  width: 100%;
+  background: #5668FE;
+  border-radius: 10px;
+  background: #5668FE 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 33px;
+  font-size: 15px;
+  padding: 15px;
+}
+
+.modal-address {
+  font-size: 17px;
+  font-family: 'Poppins SemiBold';
+}
+
+.modal-key {
+  font-size: 17px;
+  text-overflow: ellipsis;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.modal-content {
+  border-radius: 20px;
+}
+
+@media(max-width:576px) {
+  .card.hovercard {
+    margin-bottom: 0px;
+    top: 120px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding-top: 0px;
+    min-height: calc(100vh - 120px);
+  }
+  .card.hovercard .info {
+    padding: 4px 20px 0px;
+  }
+  .card.hovercard .info .title {
+    font-size: 27px;
+    margin-bottom: 2px;
+    line-height: 25px;
+  }
+  .card.hovercard .info .username {
+    margin-bottom: 16px;
+    font-size: 13px;
+  }
+  .card.hovercard .info .desc {
+    font-size: 13px;
+    line-height: 20px;
+    margin-bottom: 0px;
+  }
+  .card.hovercard .avatar {
+    top: -60px;
+  }
+  .card.hovercard .avatar img {
+    margin-bottom: -50px;
+    width: 130px;
+    height: 130px;
+    max-width: 130px;
+    max-height: 130px;
+  }
+  .mobile-modal {
+    display: block;
+    position: fixed;
+    bottom: 0px;
+    z-index: 1100;
+  }
+  .desktop-modal {
+    display: none;
+  }
+  .address img {
+    width: 93px;
+    height: 93px;
+    border-radius: 20%;
+    box-shadow: 0px 2px 6px lightgrey;
+  }
+  .address .key {
+    color: #D1D1D1;
+    font-size: 15px;
+  }
+  .pb-6 {
+    padding-bottom: 170px;
+  }
+}
