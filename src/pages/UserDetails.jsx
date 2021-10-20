@@ -27,7 +27,7 @@ class UserDetails extends Component {
 
   componentWillReceiveProps(newProps) {
     console.log(newProps);
-    if (newProps.match.params.username.indexOf('b=') == -1 && !newProps.user) {
+    if (newProps.match.params.username.indexOf('b=') < 0 && !newProps.user) {
       this.props.userData(newProps.match.params.username)
     }
   }
