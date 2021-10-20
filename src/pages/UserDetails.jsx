@@ -37,7 +37,7 @@ class UserDetails extends Component {
     this.handleShow();
   }
 
-  copyAddress = async() => {
+  copyAddress = async () => {
     await navigator.clipboard.writeText(this.state.address);
     this.setState({ copied: true });
   }
