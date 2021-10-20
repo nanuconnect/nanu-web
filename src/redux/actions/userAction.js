@@ -27,7 +27,7 @@ export const userDataByCode = braceletId => async dispatch => {
   res.forEach(doc => {
     let res2 = doc.data()
     res1.push({ ...res2, id: doc.id })
-  })
+  });
   return dispatch({
     type: 'USER_SET',
     payload: res1[0]?.username

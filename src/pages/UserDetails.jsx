@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom/cjs/react-router-dom.min'
-import { userData } from '../redux/actions/userAction'
+import { withRouter, Redirect } from 'react-router-dom/cjs/react-router-dom.min'
+import { userData, userDataByCode } from '../redux/actions/userAction'
 import MobModal from './MobModal'
 import { Modal, Button } from 'react-bootstrap';
 import './UserDetails.css'
@@ -16,7 +16,20 @@ class UserDetails extends Component {
   }
 
   componentDidMount() {
-    this.props.userData(this.props.match.params.username)
+    console.log(this.props.match.params.username);
+    if (this.props.match.params.username && this.props.match.params.username.indexOf('b=') > -1) {
+      console.log(this.props.match.params.username.replace('b=', ''));
+      this.props.userDataByCode(this.props.match.params.username.replace('b=', ''));
+    } else {
+      this.props.userData(this.props.match.params.username)
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    console.log(newProps);
+    if (newProps.match.params.username.indexOf('b=') == -1 && !newProps.user) {
+      this.props.userData(newProps.match.params.username)
+    }
   }
 
   openApp = () => {
@@ -43,6 +56,9 @@ class UserDetails extends Component {
   }
 
   render() {
+    if (this.props.username === undefined) {
+      window.alert('Bracelet has not been linked');
+    }
     return (this.props.user && this.props.user.username === this.props.match.params.username) ? (
       <div
         className='container-fluid px-0'
@@ -100,14 +116,15 @@ class UserDetails extends Component {
           </Modal.Body>
         </Modal>
       </div>
-    ) : (
-      <h3 className="color-white">Loading...</h3>
-    )
+    ) : this.props.username ?
+      <Redirect to={`/${this.props.username}`} /> : (
+        <h3 className="color-white">Loading...</h3>
+      )
   }
 }
 
 const mapStateToProps = storeState => {
-  return { user: storeState.listState.single }
+  return { user: storeState.listState.single, username: storeState.listState.username }
 }
 
-export default withRouter(connect(mapStateToProps, { userData })(UserDetails))
+export default withRouter(connect(mapStateToProps, { userData, userDataByCode })(UserDetails))
