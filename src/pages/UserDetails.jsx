@@ -51,8 +51,25 @@ class UserDetails extends Component {
   }
 
   copyAddress = async () => {
-    await navigator.clipboard.writeText(this.state.address);
-    this.setState({ copied: true });
+    if (this.state.coinName === 'VENMO') {
+      if (this.state.address[0] === '@') {
+        window.open(`https://venmo.com/u/${this.state.address.slice(1)}`, "_blank");
+      } else {
+        window.open(`https://venmo.com/u/${this.state.address}`, "_blank");
+      }
+    } else if (this.state.coinName === 'CASH') {
+      if (this.state.address[0] === '$') {
+        window.open(`https://cash.app/${this.state.address}`, "_blank");
+      } else {
+        window.open(`https://cash.app/$${this.state.address}`, "_blank");
+      }
+    } else if (this.state.coinName === 'PAYPAL') {
+      window.open(`https://paypal.me/${this.state.address}`, "_blank");
+    } else {
+      await navigator.clipboard.writeText(this.state.address);
+      this.setState({ copied: true });
+    }
+
   }
 
   render() {
@@ -109,9 +126,16 @@ class UserDetails extends Component {
             <div className="modal-address">Address</div>
             <div className="modal-key">{this.state.address}</div>
             <div className="p-3">
-              <Button className="modal-button" onClick={() => this.copyAddress()} disabled={this.state.copied}>
-                {this.state.copied ? 'Copied' : 'Copy Address'}
-              </Button>
+              {
+                ["VENMO", "CASH", "PAYPAL"].indexOf(this.state.coinName) > -1 ?
+                  <Button className="modal-button" onClick={() => this.copyAddress()} >
+                    OPEN
+                  </Button>
+                  :
+                  <Button className="modal-button" onClick={() => this.copyAddress()} disabled={this.state.copied}>
+                    {this.state.copied ? 'Copied' : 'Copy Address'}
+                  </Button>
+              }
             </div>
           </Modal.Body>
         </Modal>
