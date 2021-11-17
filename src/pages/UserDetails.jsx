@@ -33,7 +33,7 @@ class UserDetails extends Component {
   }
 
   openApp = () => {
-    window.open("https://nanuconnect.com/download", "_blank");
+    window.open("https://apps.apple.com/us/app/nanu/id1584423773", "_blank");
   }
 
   handleShow = () => {
